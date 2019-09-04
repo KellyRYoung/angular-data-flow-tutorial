@@ -1,9 +1,6 @@
-* {
-    padding: 0;
-    margin: 0;
-}
 
-@media screen and (min-width: 400px) {
+
+@media screen and (min-width: 500px) {
     body {
         font-family: Arial, Helvetica, sans-serif;
         padding: 50px;
@@ -12,13 +9,11 @@
         margin-top: 30px;
         margin-bottom: 10px;
     }
+    /* For unknown  */
     code {
         border: 1px solid rgba(0,0,0,0.2);
         padding: 3px 5px;
         margin: 10px;
-    }
-    ol {
-        margin-left: 30px;
     }
     a {
         text-decoration: none;
@@ -29,5 +24,8 @@
     }
     a:active {
         color: rgb(21, 46, 100);
+    }
+    p {
+        margin: 10px 0;
     }
 }

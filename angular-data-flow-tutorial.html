@@ -11,25 +11,57 @@
 </head>
 <body>
     <!-- Remember: when writing code examples, you must use &amp; for the & symbol, &gt; for the > symbol, and &lt; for the < symbol. -->
-    
+
     <h1>Angular Data Flow Tutorial</h1>
     <p>This is intended to be a quick guide into the various means of passing data in Angular.</p>
 
+    <!-- Table of Contents begin -->
     <h2>Table of Contents:</h2>
     <ol>
-        <li><a href="#same-component-header">Data Flow in the Same Component</a></li>
+        <li><a href="#same-component-header">Data Flow in the Same Component</a>
+            <ol type="a">
+                <li>Binding
+                    <ul>
+                        <li>One-Way Binding</li>
+                        <li>Two-Way Binding</li>
+                    </ul>
+                </li>
+            <li>Two-Way Binding Split</li>
+            <li>Getters and Setters</li>
+            <li>@ViewChild() (to get DOM element data)</li></ol>
+            
+        </li>
         <li><a href="#parent-child-components-header">Data Flow in Parent/Child Components</a></li>
         <li><a href="#separate-components-header">Data Flow in Separate Components</a></li>
+        <li><a href="#useful-links">Useful Links</a></li>
     </ol>
+    <!-- Table of Contents end -->
 
+    <!-- Same Component info -->
     <h3 id="same-component-header">Data Flow in the Same Component</h3>
     <p>This is for sharing data between the view (HTML file) and the component (TS file)</p>
+    <!-- Same Component info end -->
 
+    <!-- Parent/Child Components info -->
     <h3 id="parent-child-components-header">Data Flow in Parent/Child Components</h3>
     <p>This is for sharing data between parent components and child components; in other words, "child" components that are nested inside "parent" components.</p>
+    <!-- Parent/Child Components info end -->
 
+    <!-- Separate Components info -->
     <h3 id="separate-components-header">Data Flow in Separate Components</h3>
     <p>This is for sharing data between components that do not have a parent/child relationship; in other words, one component is not nested within another.</p>
+    <!-- Separate Components info end -->
+
+    <!-- Useful Links -->
+    <h3 id="useful-links">Useful Links</h3>
+    <p>
+        <ul>
+            <li><a href="https://www.youtube.com/playlist?list=PLC3y8-rFHvwgKhaLU8GTyF-5Bb8qT-wzV">Angular Component Interaction Tutorial playlist by Codevolution on YouTube</a>
+                <ul><li>This tutorial series was referenced heavily in the creation of this document. Codevolution also has other excellent tutorials on Angular and other technologies.</li></ul>
+            </li>
+        </ul>
+    </p>
+    <!-- Useful Links end -->
 
     <code>Test {test}</code>
 </body>
