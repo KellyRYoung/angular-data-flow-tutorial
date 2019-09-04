@@ -17,83 +17,89 @@
 
     <!-- Table of Contents begin -->
     <h2>Table of Contents:</h2>
-    <ol>
-        <li><a href="#same-component-header">Data Flow in the Same Component</a>
-            <ol type="a">
-                <li><a href="#binding-header">Binding</a>
-                    <ul>
-                        <li><a href="#one-way-binding-header">One-Way Binding</a>
-                            <ul>
-                                <li><a href="#interpolation-header">Interpolation <code>{{}}</code></a></li>
-                                <li><a href="#property-binding-header">Property Binding <code>[]</code></a></li>
-                                <li><a href="#event-binding-header">Event Binding <code>()</code></a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#two-way-binding-header">Two-Way Binding</a>
-                            <ul><li><a href="#ng-model-header">NgModel <code>[()]</code></li></a></ul>
-                        </li>
-                    </ul>
-                </li>
-            <li><a href="#two-way-binding-split-header">Two-Way Binding Split</a></li>
-            <li><a href="#getters-and-setters-header">Getters and Setters</a></li>
-            <li><a href="#view-child-header">@ViewChild() (to get DOM element data)</a></li></ol>
-            
-        </li>
-        <li><a href="#parent-child-components-header">Data Flow in Parent/Child Components</a></li>
-        <li><a href="#separate-components-header">Data Flow in Separate Components</a></li>
-        <li><a href="#use-cases-header">Which One Should I Use?</a></li>
-        <li><a href="#useful-links-header">Useful Links</a></li>
-    </ol>
+    <p>
+        <ol>
+            <li><a href="#same-component-header">Data Flow in the Same Component</a>
+                <ol type="a">
+                    <li><a href="#binding-header">Binding</a>
+                        <ul>
+                            <li><a href="#one-way-binding-header">One-Way Binding</a>
+                                <ul>
+                                    <li><a href="#interpolation-header">Interpolation <code>{{}}</code></a></li>
+                                    <li><a href="#property-binding-header">Property Binding <code>[]</code></a></li>
+                                    <li><a href="#event-binding-header">Event Binding <code>()</code></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#two-way-binding-header">Two-Way Binding</a>
+                                <ul><li><a href="#ng-model-header">NgModel <code>[()]</code></li></a></ul>
+                            </li>
+                        </ul>
+                    </li>
+                <li><a href="#two-way-binding-split-header">Two-Way Binding Split</a></li>
+                <li><a href="#getters-and-setters-header">Getters and Setters</a></li>
+                <li><a href="#view-child-header">@ViewChild() (to get DOM element data)</a></li></ol>
+                
+            </li>
+            <li><a href="#parent-child-components-header">Data Flow in Parent/Child Components</a></li>
+            <li><a href="#separate-components-header">Data Flow in Separate Components</a></li>
+            <li><a href="#use-cases-header">Which One Should I Use?</a></li>
+            <li><a href="#useful-links-header">Useful Links</a></li>
+        </ol>
+    </p>
     <!-- Table of Contents end -->
 
 
 
     <!-- Same Component info -->
-    <h3 id="same-component-header">Data Flow in the Same Component</h3>
+    <h2 id="same-component-header">Data Flow in the Same Component</h2>
     <p>This is for sharing data between the view (HTML file) and the component (TS file)</p>
 
-    <h4 id="binding-header">Binding</h4>
+        <h3 id="binding-header">Binding</h3>
 
-    <h5 id="one-way-binding-header">One-Way Binding</h5>
-    <p>A common and easy method for transferring data between a component's view (HTML) and component (TS) is with one-way binding. This includes interpolation <code>{{}}</code>, property binding <code>[]</code>, and event binding <code>()</code>.</p>
+            <h5 id="one-way-binding-header">One-Way Binding</h5>
+            <p>A common and easy method for transferring data between a component's view (HTML) and component (TS) is with one-way binding. This includes interpolation <code>{{}}</code>, property binding <code>[]</code>, and event binding <code>()</code>.</p>
 
-    <h6 id="interpolation-header">Interpolation <code>{{}}</code></h6>
-    <h6 id="property-binding-header">Property Binding <code>[]</code></h6>
-    <h6 id="event-binding-header">Event Binding <code>()</code></h6>
+                <h6 id="interpolation-header">Interpolation <code>{{}}</code></h6>
+                <p>Interpolation passes data one way, from the component (TS) file to the view (HTML) file.</p>
 
-    <h5 id="two-way-binding-header">Two-Way Binding</h5>
-    <h6 id="ng-model-header">NgModel <code>[()]</code></h6>
+                <h6 id="property-binding-header">Property Binding <code>[]</code></h6>
 
-    <h4 id="two-way-binding-split-header">Two-Way Binding Split</h4>
+                <h6 id="event-binding-header">Event Binding <code>()</code></h6>
 
-    <h4 id="getters-and-setters-header">Getters and Setters</h4>
+            <h5 id="two-way-binding-header">Two-Way Binding</h5>
+                <h6 id="ng-model-header">NgModel <code>[()]</code></h6>
 
-    <h4 id="view-child-header">@ViewChild() (To Get DOM Element Data)</h4>
+        <h4 id="two-way-binding-split-header">Two-Way Binding Split</h4>
+
+        <h4 id="getters-and-setters-header">Getters and Setters</h4>
+
+        <h4 id="view-child-header">@ViewChild() (To Get DOM Element Data)</h4>
+        <p>Although the @ViewChild() decorator is usually used to pass data between parent components and child components, it can also be used by a single component to gain access to the interior properties of an element in the DOM.</p>
     <!-- Same Component info end -->
 
 
 
     <!-- Parent/Child Components info begin -->
-    <h3 id="parent-child-components-header">Data Flow in Parent/Child Components</h3>
+    <h2 id="parent-child-components-header">Data Flow in Parent/Child Components</h2>
     <p>This is for sharing data between parent components and child components; in other words, "child" components that are nested inside "parent" components.</p>
     <!-- Parent/Child Components info end -->
 
 
 
     <!-- Separate Components info begin -->
-    <h3 id="separate-components-header">Data Flow in Separate Components</h3>
+    <h2 id="separate-components-header">Data Flow in Separate Components</h2>
     <p>This is for sharing data between components that do not have a parent/child relationship; in other words, one component is not nested within another.</p>
     <!-- Separate Components info end -->
 
 
     <!-- Use Cases begin-->
-    <h3 id="use-cases-header">Which One Should I Use?</h3>
+    <h2 id="use-cases-header">Which One Should I Use?</h2>
     <p>To help figure out which method is most appropriate, here are some potential use cases:</p>
     <!-- Use Cases end -->
 
 
     <!-- Useful Links -->
-    <h3 id="useful-links-header">Useful Links</h3>
+    <h2 id="useful-links-header">Useful Links</h2>
     <p>
         <ul>
             <li><a href="https://www.youtube.com/playlist?list=PLC3y8-rFHvwgKhaLU8GTyF-5Bb8qT-wzV">Angular Component Interaction Tutorial playlist by Codevolution on YouTube</a>
@@ -103,6 +109,5 @@
     </p>
     <!-- Useful Links end -->
 
-    <code>Test {test}</code>
 </body>
 </html>

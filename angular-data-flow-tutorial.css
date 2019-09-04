@@ -1,31 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 50px;
+}
 
-@media screen and (min-width: 500px) {
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        padding: 50px;
-    }
-    h1, h2, h3 {
-        margin-top: 30px;
-        margin-bottom: 10px;
-    }
-    /* For unknown  */
-    code {
-        border: 1px solid rgba(0,0,0,0.2);
-        padding: 0 3px 3px 3px;
-        margin: 3px;
-    }
-    a {
-        text-decoration: none;
-        color: rgb(38, 97, 175);
-    }
-    a:hover {
-        color: rgb(38, 97, 175, 0.6);
-    }
-    a:active {
-        color: rgb(21, 46, 100);
-    }
-    p {
-        margin: 10px 0;
-    }
+h1, h2, h3 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+h4, h5, h6 {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+ul, ol {
+    margin: 5px 20px;
+}
+
+/* For unknown reasons, cannot get "margin-top" to work on code elements */
+code {
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 0 3px 3px 3px;
+    margin: 3px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(38, 97, 175);
+}
+
+a:hover {
+    color: rgb(38, 97, 175, 0.6);
+}
+
+a:active {
+    color: rgb(21, 46, 100);
+}
+
+p {
+    margin: 10px;
+}
+
+li {
+    margin: 5px 0;
 }
