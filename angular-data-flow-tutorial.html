@@ -83,7 +83,14 @@
                 <p>Property binding <code>[]</code> passes data one way, from the component (TS) file to the view (HTML) file. This is the same as interpolation <code>{{}}</code>; the difference between property binding <code>[]</code> and interpolation <code>{{}}</code> is that interpolation <code>{{}}</code> displays the string value of a variable (after being transformed by a pipe <code>|</code>, if applicable) or a component's field, whereas property binding <code>[]</code> sets the DOM property of an element to be the value of a field or variable.</p>
                 <h6>Example of Property Binding <code>[]</code>:</h6>
                 <div class="example-ts">
-                    const 
+                    let imgSrc = "https://animalcarearlington.com/wp-content/uploads/2018/08/chinchilla.jpg"; <br>
+                    let imgStyle = "height: 100px; width: auto;"; 
+                </div>
+                <div class="example-html">
+                    &lt;img [src]="imgSrc" [style]="imgStyle"&gt;
+                </div>
+                <div class="example-ng">
+                    <img src="https://animalcarearlington.com/wp-content/uploads/2018/08/chinchilla.jpg" style="height: 100px; width: auto;">
                 </div>
 
                 <h6 id="event-binding-header">Event Binding <code>()</code></h6>
