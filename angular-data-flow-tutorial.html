@@ -61,15 +61,30 @@
             <p>A common and easy method for transferring data between a component's view (HTML) and component (TS) is with one-way binding. This includes interpolation <code>{{}}</code>, property binding <code>[]</code>, and event binding <code>()</code>.</p>
 
                 <h6 id="interpolation-header">Interpolation <code>{{}}</code></h6>
-                <p>Interpolation passes data one way, from the component (TS) file to the view (HTML) file. You cannot put expressions into the <code>{{}}</code>, only fields or variables. In addition, you can optionally include a pipe <code>|</code> to transform the field or variable in some way.</p>
-                <h6>Example of Interpolation:</h6>
+                <p>Interpolation <code>{{}}</code> passes data one way, from the component (TS) file to the view (HTML) file. You cannot put expressions into the <code>{{}}</code>, only fields or variables. In addition, you can optionally include a pipe <code>|</code> to transform the field or variable in some way. Property binding <code>[]</code> also passes data from the component (TS) file to the view (HTML); the difference is that interpolation <code>{{}}</code> displays the string value of a variable (after being transformed by a pipe <code>|</code>, if applicable) or a component's field, whereas property binding <code>[]</code> sets the DOM property of an element to be the value of a field or variable.</p>
+                <h6>Example of Interpolation <code>{{}}</code>:</h6>
+                <div class="example-ts">
+                    const pageTitle: string = "my site"; <br>
+                    let numVisitors = 6;
+                </div>
                 <div class="example-html">
-                    &lt;p&gt;{{ pageTitle | uppercase }}&lt;/p&gt;
+                    &lt;p&gt;Welcome to {{ pageTitle | uppercase }}!&lt;/p&gt; <br>
+                    &lt;br&gt; <br>
+                    &lt;p&gt;Number of visitors: {{ numVisitors }}&lt;/p&gt;
+
+                </div>
+                <div class="example-ng">
+                    Welcome to My Site! <br>
+                    Number of visitors: 6
                 </div>
 
 
                 <h6 id="property-binding-header">Property Binding <code>[]</code></h6>
-                <p></p>
+                <p>Property binding <code>[]</code> passes data one way, from the component (TS) file to the view (HTML) file. This is the same as interpolation <code>{{}}</code>; the difference between property binding <code>[]</code> and interpolation <code>{{}}</code> is that interpolation <code>{{}}</code> displays the string value of a variable (after being transformed by a pipe <code>|</code>, if applicable) or a component's field, whereas property binding <code>[]</code> sets the DOM property of an element to be the value of a field or variable.</p>
+                <h6>Example of Property Binding <code>[]</code>:</h6>
+                <div class="example-ts">
+                    const 
+                </div>
 
                 <h6 id="event-binding-header">Event Binding <code>()</code></h6>
 

@@ -6,6 +6,7 @@
 /* Elements */
 body {
     font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5em;
     padding: 50px;
     position: relative;
 }
@@ -69,6 +70,45 @@ li {
     width: auto;
     height: 50px;
     margin: 15px 30px;
+    float: left;
+}
+.example-css {
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #3c9cd77e;
+    background-color: #3c9cd723; 
+    min-height: 30px;
+}
+.css-logo {
+    width: auto;
+    height: 50px;
+    margin: 15px 30px;
+    float: left;
+}
+.example-ts {
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #007acc7e;
+    background-color: #007acc23; 
+    min-height: 30px;
+}
+.ts-logo {
+    width: auto;
+    height: 40px;
+    margin: 20px 30px 15px 30px;
+    float: left;
+}
+.example-ng {
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #dd03307e;
+    background-color: #dd033023; 
+    min-height: 30px;
+}
+.ng-logo {
+    width: auto;
+    height: 50px;
+    margin: 10px 30px 15px 20px;
     float: left;
 }
 
