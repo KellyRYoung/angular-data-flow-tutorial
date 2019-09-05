@@ -3,9 +3,11 @@
     padding: 0;
 }
 
+/* Elements */
 body {
     font-family: Arial, Helvetica, sans-serif;
     padding: 50px;
+    position: relative;
 }
 
 h1, h2, h3 {
@@ -23,7 +25,7 @@ ul, ol {
     margin: 5px 20px;
 }
 
-/* For unknown reasons, cannot get "margin-top" to work on code elements */
+/* For unknown reasons, cannot get "margin-top" to work on code elements in Chrome */
 code {
     border: 1px solid rgba(0,0,0,0.2);
     padding: 0 3px 3px 3px;
@@ -49,4 +51,41 @@ p {
 
 li {
     margin: 5px 0;
+}
+
+/* Classes */
+.example-flex-container {
+    display: flex;
+    flex-direction: row;
+}
+.example-html {
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #f165297e;
+    background-color: #f1652923; 
+    min-height: 30px;
+}
+.html-logo {
+    width: auto;
+    height: 50px;
+    margin: 15px 30px;
+    float: left;
+}
+
+/* IDs */
+#return-to-top-button {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 100;
+    color:rgba(38, 97, 175, 0.6);
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+}
+#return-to-top-button:hover {
+    color: rgba(38, 97, 175, 1);
+}
+#return-to-top-button:active {
+    color: black;
 }

@@ -8,11 +8,12 @@
     <meta name="author" content="Kelly Young">
     <meta name="description" content="A quick guide into the methods of passing data in Angular 2+">
     <link rel='stylesheet' type='text/css' media='screen' href='angular-data-flow-tutorial.css'>
+    
 </head>
-<body>
+<body onload="onLoadDoThis()">
     <!-- Remember: when writing code examples, you must use &amp; for the & symbol, &gt; for the > symbol, and &lt; for the < symbol. -->
 
-    <h1>Angular Data Flow Tutorial</h1>
+    <h1 id="top-of-page">Angular Data Flow Tutorial</h1>
     <p>This is intended to be a quick guide into the various means of passing data in Angular.</p>
 
     <!-- Table of Contents begin -->
@@ -60,9 +61,15 @@
             <p>A common and easy method for transferring data between a component's view (HTML) and component (TS) is with one-way binding. This includes interpolation <code>{{}}</code>, property binding <code>[]</code>, and event binding <code>()</code>.</p>
 
                 <h6 id="interpolation-header">Interpolation <code>{{}}</code></h6>
-                <p>Interpolation passes data one way, from the component (TS) file to the view (HTML) file.</p>
+                <p>Interpolation passes data one way, from the component (TS) file to the view (HTML) file. You cannot put expressions into the <code>{{}}</code>, only fields or variables. In addition, you can optionally include a pipe <code>|</code> to transform the field or variable in some way.</p>
+                <h6>Example of Interpolation:</h6>
+                <div class="example-html">
+                    &lt;p&gt;{{ pageTitle | uppercase }}&lt;/p&gt;
+                </div>
+
 
                 <h6 id="property-binding-header">Property Binding <code>[]</code></h6>
+                <p></p>
 
                 <h6 id="event-binding-header">Event Binding <code>()</code></h6>
 
@@ -109,5 +116,12 @@
     </p>
     <!-- Useful Links end -->
 
+    <!-- Return to Top button -->
+    <a href="#top-of-page">
+        <div id="return-to-top-button">
+            ▲
+        </div>
+    </a>
+    <script type="text/javascript" src="angular-data-flow-tutorial.js"></script>
 </body>
 </html>
