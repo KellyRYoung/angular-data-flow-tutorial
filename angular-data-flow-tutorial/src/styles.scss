@@ -186,6 +186,42 @@ input {
  left: 15px;
 }
 
+.comment {
+ color: #555;
+}
+
+.parent {
+ border: 1px dashed #1020ff7e;
+ background-color: #1020ff23;
+ text-align: center;
+ padding: 15px 40px;
+}
+
+.parent-label {
+ color: #1020ff;
+ font-weight: bold;
+ position: relative;
+ bottom: -5px;
+ left: 15px;
+}
+
+.child {
+ border: 1px dashed #ff10107e;
+ background-color: #ff101023;
+ text-align: center;
+ padding: 15px 40px;
+}
+
+.child-label {
+ color: #ff1010;
+ font-weight: bold;
+ position: relative;
+ bottom: -5px;
+ left: 15px;
+ text-align: left;
+}
+
+
 
 /* IDs */
 #return-to-top-button {

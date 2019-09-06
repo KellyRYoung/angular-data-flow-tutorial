@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentChildComponent implements OnInit {
 
+  userLoggedIn: boolean = false;
+
   constructor() { }
 
   ngOnInit() {

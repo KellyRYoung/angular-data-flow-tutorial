@@ -5,3 +5,64 @@
  This is for sharing data between parent components and child components; in
  other words, "child" components that are nested inside "parent" components.
 </p>
+
+<h4 id="input-decorator-header">@Input()</h4>
+<p>The <code>@Input()</code> decorator is used to pass data from the parent component to the child component.</p>
+
+<h6>Example of @Input():</h6>
+<div class="example-ts">
+ <span class="comment">// Parent Component</span><br>
+ userLoggedIn = true;
+</div>
+<div class="example-ts">
+ <span class="comment">// Child Component</span><br>
+ <span class="tooltip">
+  <div class="tooltiptext">The child component expects this value to come from the parent component.</div>@Input()
+  loggedIn: boolean;
+ </span><br>
+</div>
+<div class="example-html">
+ <span class="comment">&lt;!-- Parent Component --&gt;</span><br>
+ &lt;child-component <span class="tooltip">
+  <div class="tooltiptext">This is the child's property 'loggedIn'</div>[loggedIn]
+ </span>="<span class="tooltip">
+  <div class="tooltiptext">This is the parent's property 'userLoggedIn'</div>userLoggedIn
+ </span>"&gt;&lt;/child-component&gt;
+</div>
+<div class="example-html">
+ <span class="comment">&lt;!-- Child Component --&gt;</span><br>
+ &lt;p *ngIf="loggedIn"&gt;Welcome back!&lt;/p&gt;<br>
+ &lt;p *ngIf="!loggedIn"&gt;Please log in&lt;/p&gt;
+</div>
+<div class="example-output">
+ <div class="parent">
+  userLoggedIn: {{userLoggedIn}} <br>
+  <button (click)="this.userLoggedIn=!this.userLoggedIn"><span *ngIf="!userLoggedIn">Log In</span><span
+    *ngIf="userLoggedIn">Log Out</span></button>
+  <div class="child">
+   <p *ngIf="userLoggedIn">Welcome back!</p>
+   <p *ngIf="!userLoggedIn">Please log in</p>
+  </div>
+ </div>
+
+
+
+
+
+
+
+
+</div>
+*Note: Input must be imported from @angular/core
+
+<h4>Getters and Setters</h4>
+
+<h4>ngOnChanges()</h4>
+
+<h4>TemplateReferenceVariables</h4>
+
+<h4>@ViewChild()</h4>
+
+<h4>Emitting Events</h4>
+
+<h4>Services</h4>
