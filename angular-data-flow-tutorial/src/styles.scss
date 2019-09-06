@@ -10,6 +10,7 @@ body {
  line-height: 1.5em;
  padding: 50px;
  position: relative;
+ font-size: 1em;
 }
 
 h1,
@@ -62,6 +63,29 @@ li {
  margin: 5px 0;
 }
 
+button {
+ padding: 5px 15px;
+ border-radius: 5px;
+ font-size: 1em;
+ box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+ box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+ position: relative;
+ bottom: 1px;
+}
+
+button:active {
+ box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) inset;
+ position: relative;
+ bottom: -1px;
+}
+
+input {
+ font-size: 1em;
+}
+
 /* Classes */
 .flex-container-row {
  display: flex;
@@ -81,6 +105,13 @@ li {
  margin: 15px 30px;
  float: left;
 }
+.html-label {
+ color: #f16529;
+ font-weight: bold;
+ position: relative;
+ bottom: -15px;
+ left: 15px;
+}
 .example-css {
  font-family: 'Courier New', Courier, monospace;
  margin: 10px;
@@ -94,6 +125,13 @@ li {
  height: 50px;
  margin: 15px 30px;
  float: left;
+}
+.css-label {
+ color: #3c9cd7;
+ font-weight: bold;
+ position: relative;
+ bottom: -15px;
+ left: 15px;
 }
 .example-ts {
  font-family: 'Courier New', Courier, monospace;
@@ -109,6 +147,13 @@ li {
  margin: 20px 30px 15px 30px;
  float: left;
 }
+.ts-label {
+ color: #007acc;
+ font-weight: bold;
+ position: relative;
+ bottom: -15px;
+ left: 15px;
+}
 .example-ng {
  margin: 10px;
  padding: 20px;
@@ -122,6 +167,21 @@ li {
  margin: 15px 30px 15px 20px;
  float: left;
 }
+.example-output {
+ margin: 10px;
+ padding: 20px;
+ border: 1px solid #0585207e;
+ background-color: #05852023;
+ min-height: 30px;
+}
+.output-label {
+ color: #058520;
+ font-weight: bold;
+ position: relative;
+ bottom: -15px;
+ left: 15px;
+}
+
 
 /* IDs */
 #return-to-top-button {

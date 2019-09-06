@@ -1,9 +1,15 @@
+<h2 id="same-component-header">Data Flow in the Same Component</h2>
+<p>
+ This is for sharing data between the view (HTML file) and the model (TS
+ file).
+</p>
+
 <h3 id="binding-header">Binding</h3>
 
 <h5 id="one-way-binding-header">One-Way Binding</h5>
 <p>
  A common and easy method for transferring data between a component's view
- (HTML) and component (TS) is with one-way binding. This includes interpolation
+ (HTML) and model (TS) is with one-way binding. This includes interpolation
  <code ng-non-bindable>&#123;<i></i>&#123;&#125;<i></i>&#125;</code>, property
  binding <code>[]</code>, and event binding <code>()</code>.
 </p>
@@ -16,11 +22,11 @@
 <p>
  Interpolation
  <code ng-non-bindable>&#123;<i></i>&#123;&#125;<i></i>&#125;</code>
- passes data one way, from the component (TS) file to the view (HTML) file. You
+ passes data one way, from the model (TS) file to the view (HTML) file. You
  cannot put expressions into the , only fields or variables. In addition, you
  can optionally include a pipe <code>|</code> to transform the field or variable
  in some way. Property binding <code>[]</code> also passes data from the
- component (TS) file to the view (HTML); the difference is that interpolation
+ model (TS) file to the view (HTML); the difference is that interpolation
  <code ng-non-bindable>&#123;<i></i>&#123;&#125;<i></i>&#125;</code>
  displays the string value of a variable (after being transformed by a pipe
  <code>|</code>, if applicable) or a component's field, whereas property binding
@@ -37,18 +43,14 @@
 </div>
 <div class="example-html">
  &lt;p&gt;Welcome to &#123;<i></i>&#123; pageTitle
- <span class="tooltip"
-  >| uppercase<span class="tooltiptext"
-   >Note the use of a pipe here to transform the pageTitle variable's value to
-   uppercase</span
-  ></span
- >
+ <span class="tooltip">| uppercase<span class="tooltiptext">Note the use of a pipe here to transform the pageTitle
+   variable's value to
+   uppercase</span></span>
  &#125;<i></i>&#125;!&lt;/p&gt; <br />
  &lt;br&gt; <br />
- &lt;p&gt;Number of visitors: &#123;<i></i>&#123; numVisitors &#125;<i
- ></i>&#125;&lt;/p&gt;
+ &lt;p&gt;Number of visitors: &#123;<i></i>&#123; numVisitors &#125;<i></i>&#125;&lt;/p&gt;
 </div>
-<div class="example-ng">
+<div class="example-output">
  Welcome to My Site! <br />
  Number of visitors: 6
 </div>
@@ -56,7 +58,7 @@
 <!-- Property Binding -->
 <h6 id="property-binding-header">Property Binding <code>[]</code></h6>
 <p>
- Property binding <code>[]</code> passes data one way, from the component (TS)
+ Property binding <code>[]</code> passes data one way, from the model (TS)
  file to the view (HTML) file. This is the same as interpolation
  <code ng-non-bindable>&#123;<i></i>&#123;&#125;<i></i>&#125;</code>; the
  difference between property binding <code>[]</code> and interpolation
@@ -78,28 +80,94 @@
 <div class="example-html">
  &lt;img [src]="imgSrc" [style]="imgStyle"&gt;
 </div>
-<div class="example-ng">
- <img
-  src="https://animalcarearlington.com/wp-content/uploads/2018/08/chinchilla.jpg"
-  style="height: 100px; width: auto;"
- />
+<div class="example-output">
+ <img src="https://animalcarearlington.com/wp-content/uploads/2018/08/chinchilla.jpg"
+  style="height: 100px; width: auto;" />
 </div>
 
 <!-- Event Binding -->
 <h6 id="event-binding-header">Event Binding <code>()</code></h6>
 <p>
- Event binding <code>()</code> passes data one-way from the view (HTML) file to
- the component (TS) file. When the user interacts with the view, event binding
- <code>()</code> passes that information back to the component (TS) file.
+ Event binding <code>()</code> passes data one-way from the view (HTML) to
+ the model (TS). When the user interacts with the view, event binding
+ passes that information back to the model. One common use of event
+ binding is to bind the click event in order to trigger a function.
 </p>
+<h6>Example of Property Binding <code>[]</code>:</h6>
+<div class="example-ts">
+ doThis() &#123; <br />
+ &nbsp;&nbsp;&nbsp;alert("You just triggered the click event.");<br />
+ &#125;
+</div>
+<div class="example-html">
+ &lt;button (click)="doThis()"&gt;Click here to trigger the click
+ event&lt;/button&gt;
+</div>
+<div class="example-output">
+ <button (click)="clickEventExample()">
+  Click here to trigger the click event
+ </button>
+</div>
 
 <!-- Two-Way Binding -->
 <h5 id="two-way-binding-header">Two-Way Binding</h5>
 <h6 id="ng-model-header">
  NgModel <code>[(<i></i>)]</code>
 </h6>
+<p>
+ Two-way data binding passes data both from the view (HTML) to the model
+ (TS) and from the model (TS) to the view (HTML). NgModel will keep the view and the model always in sync. This
+ is most commonly used with forms, and is therefore included in @angular/forms.
+</p>
+<h6>Example of Two-Way Binding <code>[()]</code>:</h6>
+<div class="example-html">
+ &lt;input type="text" [(ngModel)]="userInput" placeholder="Type here"&gt; <br />
+ &lt;br&gt; <br />
+ User input: &#123;<i></i>&#123; userInput &#125;<i></i>&#125;
+</div>
+<div class="example-ts">
+ userInput: string;
+</div>
+<div class="example-output">
+ <input type="text" [(ngModel)]="userInput" placeholder="Type here" /><br />
+ User Input: {{ userInput }}
+</div>
+*Note: You must import the FormsModule from @angular/forms in order to use
+ngModel.
 
 <h4 id="two-way-binding-split-header">Two-Way Binding Split</h4>
+<p>Two-way data binding with NgModel using the <code>[()]</code> syntax will keep the model (TS) and view (HTML) in sync
+ with each other; however, it does not allow for any additional code to be executed depending on the input. To achieve
+ this functionality, we can use the split two-way data binding. The method for doing this is to separate the property
+ binding <code>[ngModel]</code> and the event binding <code>(ngModelChange)</code>.</p>
+
+<h6>Example of Split Two-Way Binding:</h6>
+In the following example, we will make an alert message appear whenever the userInput === "chinchilla".
+<code>$event</code> refers to the event of the text inside the input field changing. Therefore,
+<code>userInput=$event</code> will set the variable <code>userInput</code> equal to the text within the input field
+whenever it is changed.
+<br>
+<div class="example-ts">
+ userInput: string;<br>
+ secretWord(updatedValue) &#123;<br>
+ &nbsp;&nbsp;&nbsp;this.userInput = updatedValue; <br>
+ &nbsp;&nbsp;&nbsp;if (updatedValue === "chinchilla") &#123;<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("You typed the secret word!")<br>
+ &nbsp;&nbsp;&nbsp;&#125;<br>
+ &#125;
+</div>
+<div class="example-html">
+ &lt;input type="text" [ngModel]="userInput" (ngModelChange)="secretWord($event)" placeholder="Type 'chinchilla'"&gt;
+ <br />
+ &lt;br&gt; <br />
+ User input: &#123;<i></i>&#123; userInput &#125;<i></i>&#125;
+</div>
+<div class="example-output">
+ <input type="text" [ngModel]="userInput2" (ngModelChange)="secretWord($event)" placeholder="Type 'chinchilla'" /><br />
+ User Input: {{ userInput2 }}
+</div>
+*Note: You must import the FormsModule from @angular/forms in order to use
+ngModel.
 
 <!-- Getters and Setters -->
 <h4 id="getters-and-setters-header">Getters and Setters</h4>
