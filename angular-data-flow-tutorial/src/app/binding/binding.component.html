@@ -1,3 +1,4 @@
+<!-- Intro -->
 <h2 id="same-component-header">Data Flow in the Same Component</h2>
 <p>
  This is for sharing data between the view (HTML file) and the model (TS
@@ -13,6 +14,8 @@
  <code ng-non-bindable>&#123;<i></i>&#123;&#125;<i></i>&#125;</code>, property
  binding <code>[]</code>, and event binding <code>()</code>.
 </p>
+
+
 
 <!-- Interpolation -->
 <h6 id="interpolation-header">
@@ -54,6 +57,8 @@
  Welcome to My Site! <br />
  Number of visitors: 6
 </div>
+
+
 
 <!-- Property Binding -->
 <h6 id="property-binding-header">Property Binding <code>[]</code></h6>
@@ -108,6 +113,8 @@
   Click here to trigger the click event
  </button>
 </div>
+
+
 
 <!-- Two-Way Binding -->
 <h5 id="two-way-binding-header">Two-Way Binding</h5>
@@ -170,6 +177,8 @@ whenever it is changed.
 *Note: You must import the FormsModule from @angular/forms in order to use
 ngModel.
 
+
+
 <!-- Getters and Setters -->
 <h4 id="getters-and-setters-header">Getters and Setters</h4>
 <p>Getters and setters can also be used to pass data from the view (HTML) to the model (TS) and from the model (TS) to
@@ -214,10 +223,48 @@ ngModel.
  User input: {{ userInput3 }}
 </div>
 
+
+
 <!-- View Child -->
 <h4 id="view-child-header">@ViewChild() (To Get DOM Element Data)</h4>
 <p>
- Although the @ViewChild() decorator is usually used to pass data between parent
+ Although the <code>@ViewChild()</code> decorator is usually used to pass data between parent
  components and child components, it can also be used by a single component to
  gain access to the interior properties of an element in the DOM.
 </p>
+<h6>Example of @ViewChild() (to access a DOM element's properties):</h6>
+In this example, we will make it so that the user's focus is automatically set to the username input box.
+<div class="example-ts">
+ @ViewChild(<span class="tooltip">
+  <div class="tooltiptext">This is the template reference variable in your HTML</div>'usernameRef'
+ </span>, <span class="tooltip">
+  <div class="tooltiptext">Note: since Angular 8, @ViewChild() requires two parameters.</div>&#123;
+  static: false &#125;
+ </span>)<br>
+ usernameElementRef: <span class="tooltip">
+  <div class="tooltiptext">ElementRef is the type.</div>ElementRef
+ </span>;<br><br>
+ ngAfterViewInit() &#123;<br>
+ &nbsp;&nbsp;&nbsp;this.usernameElementRef.nativeElement.focus();<br>
+ &#125;
+</div>
+
+<div class="example-html">
+ &lt;input <span class="tooltip">
+  <div class="tooltiptext">Note: this is a template reference variable</div>#usernameRef
+ </span> type="text" placeholder="username"&gt;<br>
+ &lt;br&gt;<br>
+ &lt;input type="password" placeholder="password"&gt;
+</div>
+
+<div class="example-output">
+ <input #usernameRef type="text" placeholder="username">
+ <br>
+ <input type="password" placeholder="password"><br>
+ <button (click)="focusOnUsername()">Click here to focus on username</button>
+</div>
+*Note: ElementRef, ViewChild, and AfterViewInit must all be imported from @angular/core. The component class must
+implement AfterViewInit.<br>
+**Note: For the purposes of demonstration, the focus behavior is simulated after the above button is clicked. In a real
+application, however, the given code would result in the focus being on the username input field as soon as the page has
+finished loading.

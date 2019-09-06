@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 
 @Component({
   selector: "app-binding",
@@ -9,10 +9,15 @@ export class BindingComponent implements OnInit {
   userInput: string;
   userInput2: string;
   private _userInput3: string;
+  @ViewChild('usernameRef', { static: false }) usernameElementRef: ElementRef;
 
   constructor() { }
 
   ngOnInit() { }
+
+  focusOnUsername() {
+    this.usernameElementRef.nativeElement.focus();
+  }
 
   clickEventExample = () => {
     alert("You just triggered the click event.");
