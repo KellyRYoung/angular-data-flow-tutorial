@@ -149,6 +149,7 @@ whenever it is changed.
 <br>
 <div class="example-ts">
  userInput: string;<br>
+ <br>
  secretWord(updatedValue) &#123;<br>
  &nbsp;&nbsp;&nbsp;this.userInput = updatedValue; <br>
  &nbsp;&nbsp;&nbsp;if (updatedValue === "chinchilla") &#123;<br>
@@ -171,6 +172,47 @@ ngModel.
 
 <!-- Getters and Setters -->
 <h4 id="getters-and-setters-header">Getters and Setters</h4>
+<p>Getters and setters can also be used to pass data from the view (HTML) to the model (TS) and from the model (TS) to
+ the view (HTML). The field in our model must be set to 'private' and must be preceded by an underscore <code>_</code>.
+</p>
+<h6>Getters and Setters Example:</h6>
+<div class="example-ts">
+ private <span class="tooltip">
+  <div class="tooltiptext">Note: underscore in front of variable name</div>_userInput
+ </span>: string;<br>
+ <br>
+ get <span class="tooltip">
+  <div class="tooltiptext">Note: no underscore</div>userInput
+ </span>(): string &#123;<br>
+ &nbsp;&nbsp;&nbsp;return this._userInput;<br>
+ &#125;<br>
+ <br>
+ set <span class="tooltip">
+  <div class="tooltiptext">Note: no underscore</div>userInput
+ </span>(value: string) &#123;<br>
+ &nbsp;&nbsp;&nbsp;this._userInput = value;<br>
+ &nbsp;&nbsp;&nbsp;if (value === "knock knock") &#123;<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Who's there?");<br>
+ &nbsp;&nbsp;&nbsp;&#125;<br>
+ &#125;<br>
+</div>
+
+<div class="example-html">
+
+ &lt;input type="text" <span class="tooltip">
+  <div class="tooltiptext">Note: ngModel is binding to the getters and setters</div>[(ngModel)]="userInput"
+ </span>
+ placeholder="Type 'knock knock'"&gt;
+ <br />
+ &lt;br&gt; <br />
+ User input: &#123;<i></i>&#123; userInput &#125;<i></i>&#125;
+</div>
+
+<div class="example-output">
+ <input type="text" [(ngModel)]="userInput3" placeholder="Type 'knock knock'">
+ <br>
+ User input: {{ userInput3 }}
+</div>
 
 <!-- View Child -->
 <h4 id="view-child-header">@ViewChild() (To Get DOM Element Data)</h4>
