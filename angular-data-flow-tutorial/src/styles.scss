@@ -1,0 +1,203 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+ margin: 0;
+ padding: 0;
+}
+
+/* Elements */
+body {
+ font-family: Arial, Helvetica, sans-serif;
+ line-height: 1.5em;
+ padding: 50px;
+ position: relative;
+}
+
+h1,
+h2,
+h3 {
+ margin-top: 30px;
+ margin-bottom: 10px;
+}
+
+h4,
+h5,
+h6 {
+ margin-top: 20px;
+ margin-bottom: 5px;
+ font-size: 1em;
+}
+
+ul,
+ol {
+ margin: 5px 20px;
+}
+
+/* For unknown reasons, cannot get "margin-top" to work on code elements in Chrome */
+code {
+ border: 1px solid rgba(0, 0, 0, 0.2);
+ padding: 0 3px 3px 3px;
+ margin: 3px;
+ position: relative;
+ bottom: 2px;
+}
+
+a {
+ text-decoration: none;
+ color: rgb(38, 97, 175);
+}
+
+a:hover {
+ color: rgb(38, 97, 175, 0.6);
+}
+
+a:active {
+ color: rgb(21, 46, 100);
+}
+
+p {
+ margin: 10px;
+}
+
+li {
+ margin: 5px 0;
+}
+
+/* Classes */
+.flex-container-row {
+ display: flex;
+ flex-direction: row;
+}
+.example-html {
+ font-family: 'Courier New', Courier, monospace;
+ margin: 10px;
+ padding: 20px;
+ border: 1px solid #f165297e;
+ background-color: #f1652923;
+ min-height: 30px;
+}
+.html-logo {
+ width: auto;
+ height: 50px;
+ margin: 15px 30px;
+ float: left;
+}
+.example-css {
+ font-family: 'Courier New', Courier, monospace;
+ margin: 10px;
+ padding: 20px;
+ border: 1px solid #3c9cd77e;
+ background-color: #3c9cd723;
+ min-height: 30px;
+}
+.css-logo {
+ width: auto;
+ height: 50px;
+ margin: 15px 30px;
+ float: left;
+}
+.example-ts {
+ font-family: 'Courier New', Courier, monospace;
+ margin: 10px;
+ padding: 20px;
+ border: 1px solid #007acc7e;
+ background-color: #007acc23;
+ min-height: 30px;
+}
+.ts-logo {
+ width: auto;
+ height: 40px;
+ margin: 20px 30px 15px 30px;
+ float: left;
+}
+.example-ng {
+ margin: 10px;
+ padding: 20px;
+ border: 1px solid #dd03307e;
+ background-color: #dd033023;
+ min-height: 30px;
+}
+.ng-logo {
+ width: auto;
+ height: 50px;
+ margin: 15px 30px 15px 20px;
+ float: left;
+}
+
+/* IDs */
+#return-to-top-button {
+ position: fixed;
+ bottom: 10px;
+ right: 10px;
+ z-index: 100;
+ color: rgba(38, 97, 175, 0.6);
+ font-size: 3em;
+ font-weight: bold;
+ text-align: center;
+ align-items: center;
+}
+#return-to-top-button:hover {
+ color: rgba(38, 97, 175, 1);
+ #return-to-top {
+  visibility: visible;
+ }
+}
+#return-to-top-button:active {
+ color: black;
+}
+#return-to-top {
+ font-size: 16px;
+ visibility: hidden;
+ background-color: #555;
+ border-radius: 10px;
+ padding: 5px 15px;
+ color: white;
+}
+
+/* Taken from W3 Schools: https://www.w3schools.com/howto/howto_css_tooltip.asp */
+/* Tooltip container */
+.tooltip {
+ position: relative;
+ display: inline-block;
+ border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+ visibility: hidden;
+ font-family: Arial, Helvetica, sans-serif;
+ width: 400px;
+ background-color: #555;
+ color: #fff;
+ text-align: center;
+ padding: 5px 0;
+ border-radius: 6px;
+
+ /* Position the tooltip text */
+ position: absolute;
+ z-index: 1;
+ bottom: 125%;
+ left: 50%;
+ margin-left: -200px;
+
+ /* Fade in tooltip */
+ opacity: 0;
+ transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+ content: '';
+ position: absolute;
+ top: 100%;
+ left: 50%;
+ margin-left: -5px;
+ border-width: 5px;
+ border-style: solid;
+ border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+ visibility: visible;
+ opacity: 1;
+}

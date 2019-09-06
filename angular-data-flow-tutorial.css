@@ -1,131 +1,139 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* Elements */
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.5em;
-    padding: 50px;
-    position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5em;
+  padding: 50px;
+  position: relative;
 }
 
-h1, h2, h3 {
-    margin-top: 30px;
-    margin-bottom: 10px;
+h1,
+h2,
+h3 {
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
-h4, h5, h6 {
-    margin-top: 20px;
-    margin-bottom: 5px;
-    font-size: 1em;
+h4,
+h5,
+h6 {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-size: 1em;
 }
 
-ul, ol {
-    margin: 5px 20px;
+ul,
+ol {
+  margin: 5px 20px;
 }
 
 /* For unknown reasons, cannot get "margin-top" to work on code elements in Chrome */
 code {
-    border: 1px solid rgba(0,0,0,0.2);
-    padding: 0 3px 3px 3px;
-    margin: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0 3px 3px 3px;
+  margin: 3px;
 }
 
 a {
-    text-decoration: none;
-    color: rgb(38, 97, 175);
+  text-decoration: none;
+  color: rgb(38, 97, 175);
 }
 
 a:hover {
-    color: rgb(38, 97, 175, 0.6);
+  color: rgb(38, 97, 175, 0.6);
 }
 
 a:active {
-    color: rgb(21, 46, 100);
+  color: rgb(21, 46, 100);
 }
 
 p {
-    margin: 10px;
+  margin: 10px;
 }
 
 li {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
 /* Classes */
 .example-flex-container {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 .example-html {
-    margin: 10px;
-    padding: 20px;
-    border: 1px solid #f165297e;
-    background-color: #f1652923; 
-    min-height: 30px;
+  font-family: "Courier New", Courier, monospace;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #f165297e;
+  background-color: #f1652923;
+  min-height: 30px;
 }
 .html-logo {
-    width: auto;
-    height: 50px;
-    margin: 15px 30px;
-    float: left;
+  width: auto;
+  height: 50px;
+  margin: 15px 30px;
+  float: left;
 }
 .example-css {
-    margin: 10px;
-    padding: 20px;
-    border: 1px solid #3c9cd77e;
-    background-color: #3c9cd723; 
-    min-height: 30px;
+  font-family: "Courier New", Courier, monospace;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #3c9cd77e;
+  background-color: #3c9cd723;
+  min-height: 30px;
 }
 .css-logo {
-    width: auto;
-    height: 50px;
-    margin: 15px 30px;
-    float: left;
+  width: auto;
+  height: 50px;
+  margin: 15px 30px;
+  float: left;
 }
 .example-ts {
-    margin: 10px;
-    padding: 20px;
-    border: 1px solid #007acc7e;
-    background-color: #007acc23; 
-    min-height: 30px;
+  font-family: "Courier New", Courier, monospace;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #007acc7e;
+  background-color: #007acc23;
+  min-height: 30px;
 }
 .ts-logo {
-    width: auto;
-    height: 40px;
-    margin: 20px 30px 15px 30px;
-    float: left;
+  width: auto;
+  height: 40px;
+  margin: 20px 30px 15px 30px;
+  float: left;
 }
 .example-ng {
-    margin: 10px;
-    padding: 20px;
-    border: 1px solid #dd03307e;
-    background-color: #dd033023; 
-    min-height: 30px;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #dd03307e;
+  background-color: #dd033023;
+  min-height: 30px;
 }
 .ng-logo {
-    width: auto;
-    height: 50px;
-    margin: 10px 30px 15px 20px;
-    float: left;
+  width: auto;
+  height: 50px;
+  margin: 15px 30px 15px 20px;
+  float: left;
 }
 
 /* IDs */
 #return-to-top-button {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    z-index: 100;
-    color:rgba(38, 97, 175, 0.6);
-    font-size: 3em;
-    font-weight: bold;
-    text-align: center;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 100;
+  color: rgba(38, 97, 175, 0.6);
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
 }
 #return-to-top-button:hover {
-    color: rgba(38, 97, 175, 1);
+  color: rgba(38, 97, 175, 1);
 }
 #return-to-top-button:active {
-    color: black;
+  color: black;
 }
