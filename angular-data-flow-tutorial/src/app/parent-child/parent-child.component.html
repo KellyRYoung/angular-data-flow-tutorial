@@ -44,18 +44,65 @@
    <p *ngIf="!userLoggedIn">Please log in</p>
   </div>
  </div>
-
-
-
-
-
-
-
-
 </div>
 *Note: Input must be imported from @angular/core
 
 <h4>Getters and Setters</h4>
+<p>Getters and Setters can be used to intercept the change in a value being passed from the parent to a child.
+ Additional logic can then be performed based on this passing of data.</p>
+
+<div class="example-html">
+ <span class="comment">&lt;!-- Parent Component --&gt;</span><br>
+ &lt;child-component <span class="tooltip">
+  <div class="tooltiptext">This is the child's property 'loggedIn'</div>[loggedIn]
+ </span>="<span class="tooltip">
+  <div class="tooltiptext">This is the parent's property 'userLoggedIn'</div>userLoggedIn
+ </span>"&gt;&lt;/child-component&gt;
+</div>
+<div class="example-html">
+ <span class="comment">&lt;!-- Child Component --&gt;</span><br>
+ &lt;p&gt;&#123;<i></i>&#123; message &#125;<i></i>&#125;&lt;/p&gt;<br>
+</div>
+<div class="example-ts">
+ <span class="comment">// Parent Component</span><br>
+ userLoggedIn = true;
+</div>
+<div class="example-ts">
+ <span class="comment">// Child Component</span><br>
+ private <span class="tooltip">
+  <div class="tooltiptext">Note: underscore</div>_loggedIn
+ </span>: boolean; <br>
+ message: string;<br>
+ <br>
+ get loggedIn(): boolean &#123;<br>
+ &nbsp;&nbsp;&nbsp;return this._loggedIn;<br>
+ &#125;<br>
+ <br>
+ <span class="tooltip">
+  <div class="tooltiptext">The @Input() decorator is placed on the setter to receive this value from the parent.</div>
+  @Input()
+ </span> <br>
+ set loggedIn(value: boolean) &#123;<br>
+ &nbsp;&nbsp;&nbsp;this._loggedIn = value; <br>
+ &nbsp;&nbsp;&nbsp;if (value === true) &#123;<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.message = "Welcome back!"; <br>
+ &nbsp;&nbsp;&nbsp;&#125; else &#123; <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.message = "Please log in"; <br>
+ &nbsp;&nbsp;&nbsp;&#125;<br>
+ &#125;
+</div>
+<div class="example-output">
+ <div class="parent">
+  userLoggedIn: {{userLoggedIn}} <br>
+  <button (click)="this.userLoggedIn=!this.userLoggedIn"><span *ngIf="!userLoggedIn">Log In</span><span
+    *ngIf="userLoggedIn">Log Out</span></button>
+  <div class="child">
+   <p *ngIf="userLoggedIn">Welcome back!</p>
+   <p *ngIf="!userLoggedIn">Please log in</p>
+  </div>
+ </div>
+</div>
+*Note: Input must be imported from @angular/core
 
 <h4>ngOnChanges()</h4>
 
