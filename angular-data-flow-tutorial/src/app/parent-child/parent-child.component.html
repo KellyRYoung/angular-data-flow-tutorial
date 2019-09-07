@@ -1,9 +1,9 @@
 <h2 id="parent-child-components-header">
- Data Flow in Parent/Child Components
+  Data Flow in Parent/Child Components
 </h2>
 <p>
- This is for sharing data between parent components and child components; in
- other words, "child" components that are nested inside "parent" components.
+  This is for sharing data between parent components and child components; in
+  other words, "child" components that are nested inside "parent" components.
 </p>
 
 <h4 id="input-decorator-header">@Input()</h4>
@@ -11,102 +11,214 @@
 
 <h6>Example of @Input():</h6>
 <div class="example-ts">
- <span class="comment">// Parent Component</span><br>
- userLoggedIn = true;
+  <span class="comment">// Parent Component</span><br>
+  userLoggedIn = false;
 </div>
 <div class="example-ts">
- <span class="comment">// Child Component</span><br>
- <span class="tooltip">
-  <div class="tooltiptext">The child component expects this value to come from the parent component.</div>@Input()
-  loggedIn: boolean;
- </span><br>
+  <span class="comment">// Child Component</span><br>
+  <span class="tooltip">
+    <div class="tooltiptext">The child component expects this value to come from the parent component.</div>@Input()
+    loggedIn: boolean;
+  </span><br>
 </div>
 <div class="example-html">
- <span class="comment">&lt;!-- Parent Component --&gt;</span><br>
- &lt;child-component <span class="tooltip">
-  <div class="tooltiptext">This is the child's property 'loggedIn'</div>[loggedIn]
- </span>="<span class="tooltip">
-  <div class="tooltiptext">This is the parent's property 'userLoggedIn'</div>userLoggedIn
- </span>"&gt;&lt;/child-component&gt;
+  <span class="comment">&lt;!-- Parent Component --&gt;</span><br>
+  &lt;child-component <span class="tooltip">
+    <div class="tooltiptext">This is the child's property 'loggedIn'</div>[loggedIn]
+  </span>="<span class="tooltip">
+    <div class="tooltiptext">This is the parent's property 'userLoggedIn'</div>userLoggedIn
+  </span>"&gt;&lt;/child-component&gt;
 </div>
 <div class="example-html">
- <span class="comment">&lt;!-- Child Component --&gt;</span><br>
- &lt;p *ngIf="loggedIn"&gt;Welcome back!&lt;/p&gt;<br>
- &lt;p *ngIf="!loggedIn"&gt;Please log in&lt;/p&gt;
+  <span class="comment">&lt;!-- Child Component --&gt;</span><br>
+  &lt;p *ngIf="loggedIn"&gt;Welcome back!&lt;/p&gt;<br>
+  &lt;p *ngIf="!loggedIn"&gt;Please log in&lt;/p&gt;
 </div>
 <div class="example-output">
- <div class="parent">
-  userLoggedIn: {{userLoggedIn}} <br>
-  <button (click)="this.userLoggedIn=!this.userLoggedIn"><span *ngIf="!userLoggedIn">Log In</span><span
-    *ngIf="userLoggedIn">Log Out</span></button>
-  <div class="child">
-   <p *ngIf="userLoggedIn">Welcome back!</p>
-   <p *ngIf="!userLoggedIn">Please log in</p>
+  <div class="parent">
+    userLoggedIn: {{userLoggedIn}} <br>
+    <button (click)="this.userLoggedIn=!this.userLoggedIn"><span *ngIf="!userLoggedIn">Log In</span><span
+        *ngIf="userLoggedIn">Log Out</span></button>
+    <div class="child">
+      <p *ngIf="userLoggedIn">Welcome back!</p>
+      <p *ngIf="!userLoggedIn">Please log in</p>
+    </div>
   </div>
- </div>
 </div>
 *Note: Input must be imported from @angular/core
 
-<h4>Getters and Setters</h4>
+<h4 id="getters-setters-child-header">Getters and Setters</h4>
 <p>Getters and Setters can be used to intercept the change in a value being passed from the parent to a child.
- Additional logic can then be performed based on this passing of data.</p>
+  Additional logic can then be performed based on this passing of data.</p>
 
 <div class="example-html">
- <span class="comment">&lt;!-- Parent Component --&gt;</span><br>
- &lt;child-component <span class="tooltip">
-  <div class="tooltiptext">This is the child's property 'loggedIn'</div>[loggedIn]
- </span>="<span class="tooltip">
-  <div class="tooltiptext">This is the parent's property 'userLoggedIn'</div>userLoggedIn
- </span>"&gt;&lt;/child-component&gt;
+  <span class="comment">&lt;!-- Parent Component --&gt;</span><br>
+  &lt;child-component <span class="tooltip">
+    <div class="tooltiptext">This is the child's property 'loggedIn'</div>[loggedIn]
+  </span>="<span class="tooltip">
+    <div class="tooltiptext">This is the parent's property 'userLoggedIn'</div>userLoggedIn
+  </span>"&gt;&lt;/child-component&gt;
 </div>
 <div class="example-html">
- <span class="comment">&lt;!-- Child Component --&gt;</span><br>
- &lt;p&gt;&#123;<i></i>&#123; message &#125;<i></i>&#125;&lt;/p&gt;<br>
+  <span class="comment">&lt;!-- Child Component --&gt;</span><br>
+  &lt;p&gt;&#123;<i></i>&#123; message &#125;<i></i>&#125;&lt;/p&gt;<br>
 </div>
 <div class="example-ts">
- <span class="comment">// Parent Component</span><br>
- userLoggedIn = true;
+  <span class="comment">// Parent Component</span><br>
+  userLoggedIn = false;
 </div>
 <div class="example-ts">
- <span class="comment">// Child Component</span><br>
- private <span class="tooltip">
-  <div class="tooltiptext">Note: underscore</div>_loggedIn
- </span>: boolean; <br>
- message: string;<br>
- <br>
- get loggedIn(): boolean &#123;<br>
- &nbsp;&nbsp;&nbsp;return this._loggedIn;<br>
- &#125;<br>
- <br>
- <span class="tooltip">
-  <div class="tooltiptext">The @Input() decorator is placed on the setter to receive this value from the parent.</div>
-  @Input()
- </span> <br>
- set loggedIn(value: boolean) &#123;<br>
- &nbsp;&nbsp;&nbsp;this._loggedIn = value; <br>
- &nbsp;&nbsp;&nbsp;if (value === true) &#123;<br>
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.message = "Welcome back!"; <br>
- &nbsp;&nbsp;&nbsp;&#125; else &#123; <br>
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.message = "Please log in"; <br>
- &nbsp;&nbsp;&nbsp;&#125;<br>
- &#125;
+  <span class="comment">// Child Component</span><br>
+  private <span class="tooltip">
+    <div class="tooltiptext">Note: underscore</div>_loggedIn
+  </span>: boolean; <br>
+  message: string;<br>
+  <br>
+  get loggedIn(): boolean &#123;<br>
+  &nbsp;&nbsp;&nbsp;return this._loggedIn;<br>
+  &#125;<br>
+  <br>
+  <span class="tooltip">
+    <div class="tooltiptext">The @Input() decorator is placed on the setter to receive this value from the parent.</div>
+    @Input()
+  </span> <br>
+  set loggedIn(value: boolean) &#123;<br>
+  &nbsp;&nbsp;&nbsp;this._loggedIn = value; <br>
+  &nbsp;&nbsp;&nbsp;if (value === true) &#123;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.message = "Welcome back!"; <br>
+  &nbsp;&nbsp;&nbsp;&#125; else &#123; <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.message = "Please log in"; <br>
+  &nbsp;&nbsp;&nbsp;&#125;<br>
+  &#125;
 </div>
 <div class="example-output">
- <div class="parent">
-  userLoggedIn: {{userLoggedIn}} <br>
-  <button (click)="this.userLoggedIn=!this.userLoggedIn"><span *ngIf="!userLoggedIn">Log In</span><span
-    *ngIf="userLoggedIn">Log Out</span></button>
-  <div class="child">
-   <p *ngIf="userLoggedIn">Welcome back!</p>
-   <p *ngIf="!userLoggedIn">Please log in</p>
+  <div class="parent">
+    userLoggedIn: {{userLoggedIn}} <br>
+    <button (click)="this.userLoggedIn=!this.userLoggedIn"><span *ngIf="!userLoggedIn">Log In</span><span
+        *ngIf="userLoggedIn">Log Out</span></button>
+    <div class="child">
+      <p *ngIf="userLoggedIn">Welcome back!</p>
+      <p *ngIf="!userLoggedIn">Please log in</p>
+    </div>
   </div>
- </div>
 </div>
 *Note: Input must be imported from @angular/core
 
-<h4>ngOnChanges()</h4>
+<h4 id="ng-on-changes-header">ngOnChanges()</h4>
+<p><code>ngOnChanges()</code> is a method that taps into the OnChanges lifecycle hook of the component. Using
+  <code>ngOnChanges</code> is another way to intercept the new data being fed to the child component from a parent, so
+  that additional logic can be performed. Angular calls OnChanges whenever it detects a change in the input properties.
+</p>
+<p>To do this, we will be using a type supplied by Angular called SimpleChanges. SimpleChanges has three properties:
+  previousValue: any, currentValue: any, and firstChange: boolean. previousValue is whatever the variable's last value
+  was before the current change; if the value has never changed, it will be "undefined." currentValue is whatever the
+  intercepted variable's value currently is. firstChange is a boolean value that indicates whether this is the first
+  time that this variable has changed.</p>
 
-<h4>TemplateReferenceVariables</h4>
+<h6>Example of ngOnChanges():</h6>
+
+<div class="example-html">
+  <span class="comment">&lt;!-- Parent Component --&gt;</span><br>
+  &lt;child-component <span class="tooltip">
+    <div class="tooltiptext">This is the child's property 'loggedIn'</div>[loggedIn]
+  </span>="<span class="tooltip">
+    <div class="tooltiptext">This is the parent's property 'userLoggedIn'</div>userLoggedIn
+  </span>"&gt;&lt;/child-component&gt;
+</div>
+<div class="example-html">
+  <span class="comment">&lt;!-- Child Component --&gt;</span><br>
+  &lt;p&gt;&#123;<i></i>&#123; message &#125;<i></i>&#125;&lt;/p&gt;<br>
+</div>
+
+<div class="example-ts">
+  <span class="comment">// Parent Component</span><br>
+  userLoggedIn = false;
+</div>
+
+<div class="example-ts">
+  <span class="comment">// Child Component</span><br>
+  @Input() loggedIn: boolean; <br>
+  message: string;<br>
+  <br>
+  ngOnChanges(changes: SimpleChanges) &#123; <br>
+  &nbsp;&nbsp;&nbsp;const loggedInValue = changes['loggedIn']; <br>
+  &nbsp;&nbsp;&nbsp;if (loggedInValue.currentValue === true) &#123; <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.message = 'Welcome back!'; <br>
+  &nbsp;&nbsp;&nbsp;&#125; else &#123; <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.message = 'Please log in'; <br>
+  &nbsp;&nbsp;&nbsp;&#125;<br>
+  &#125;
+</div>
+
+<div class="example-output">
+  <div class="parent">
+    userLoggedIn: {{userLoggedIn}} <br>
+    <button (click)="this.userLoggedIn=!this.userLoggedIn"><span *ngIf="!userLoggedIn">Log In</span><span
+        *ngIf="userLoggedIn">Log Out</span></button>
+    <div class="child">
+      <p *ngIf="userLoggedIn">Welcome back!</p>
+      <p *ngIf="!userLoggedIn">Please log in</p>
+    </div>
+  </div>
+</div>
+*Note: The component must implement OnChanges. OnChanges and SimpleChanges must both be imported from @angular/core.
+
+
+
+<h4 id="template-reference-variables-header">TemplateReferenceVariables</h4>
+<p>Template reference variables allows the parent component to directly access properties and methods of the child
+  component.</p>
+
+<div class="example-ts">
+  <span class="comment">// Parent Component<br>
+    /* The parent component's model (TS) is not important for this demonstration. */
+  </span><br>
+
+</div>
+
+<div class="example-ts">
+  <span class="comment">// Child Component</span><br>
+  greeting: string = "Hello! I hope you're learning a lot!" <br>
+  <br>
+  greetUser() = &#123; <br>
+  &nbsp;&nbsp;&nbsp;alert(this.greeting); <br>
+  &#125;
+</div>
+
+<div class="example-html">
+  <span class="comment">&lt;!-- Parent Component --&gt;</span><br>
+  &lt;child-component <span class="tooltip">
+    <div class="tooltiptext">This is the template reference variable</div>#child
+  </span>&gt;&lt;/child-component&gt; <br>
+  &#123;<i></i>&#123; <span class="tooltip">
+    <div class="tooltiptext">This refers to the template reference variable set above</div>child
+  </span>.<span class="span tooltip">
+    <div class="tooltiptext">This refers to the child component's property</div>greeting
+  </span> &#125;<i></i>&#125; &lt;br&gt; <br>
+  &lt;button <span class="tooltip">
+    <div class="tooltiptext">This is event binding</div>(click)
+  </span>="<span class="tooltip">
+    <div class="tooltiptext">This refers to the template reference variable set above</div>child
+  </span>.<span class="tooltip">
+    <div class="tooltiptext">This is calling the child component's method</div>greetUser()
+  </span>"&gt;Greet&lt;/button&gt;
+</div>
+
+<div class="example-html">
+  <span class="comment">&lt;!-- Child Component --&gt;</span><br>
+  <span class="comment">&lt;!-- The child component's view (HTML) is not important for this demonstration.
+    --&gt;</span><br>
+</div>
+
+<div class="example-output">
+  <div class="parent">
+    <div class="child">
+      &nbsp;
+    </div>
+    Hello! I hope you're learning a lot! <br>
+    <button (click)="greetUser()">Greet</button>
+  </div>
+</div>
 
 <h4>@ViewChild()</h4>
 
