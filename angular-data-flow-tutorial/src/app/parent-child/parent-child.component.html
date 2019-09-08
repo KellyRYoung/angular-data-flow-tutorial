@@ -221,6 +221,39 @@
 </div>
 
 <h4>@ViewChild()</h4>
+<p>@ViewChild() allows a parent component access to the properties and methods of a child component. The reference to the child component is available to the parent component using the lifecycle hook AfterViewInit.</p>
+
+<h6>Example of @ViewChild():</h6>
+
+<div class="example-ts">
+  <span class="comment">// Parent Component</span><br>
+    @ViewChild(ChildComponent, <span class="tooltip"><div class="tooltiptext">Since Angular 8, @ViewChild() requires two arguments.</div>&#123;static: false&#125;</span>) childComponentRef: ChildComponent; <br>
+    <br>
+    ngAfterViewInit() &#123; <br>
+    &nbsp;&nbsp;&nbsp;this.childComponentRef.message = "Hello from the parent component."; <br>
+    &#125;
+</div>
+<div class="example-ts">
+  <span class="comment">// Child Component</span><br>
+  message: string;
+</div>
+<div class="example-html">
+  <span class="comment">&lt;!-- Parent Component --&gt;</span><br>
+  <span class="comment">&lt;!-- The parent component's view (HTML) is not necessary for this demonstration. --&gt;</span>
+</div>
+<div class="example-html">
+  <span class="comment">&lt;!-- Child Component --&gt;</span><br>
+  &#123;<i></i>&#123; message &#125;<i></i>&#125;
+</div>
+<div class="example-output">
+  <div class="parent">
+    <div class="child">
+      Hello from the parent component.
+    </div>
+  </div>
+</div>
+
+*Note: ViewChild and AfterViewInit must be imported from @angular/core. The parent component must implement AfterViewInit.
 
 <h4>Emitting Events</h4>
 
