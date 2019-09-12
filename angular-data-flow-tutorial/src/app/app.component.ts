@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
  EXAMPLE_A_BLOCKS = document.getElementsByClassName('example-a');
  EXAMPLE_B_BLOCKS = document.getElementsByClassName('example-b');
  EXAMPLE_SERVICE_BLOCKS = document.getElementsByClassName('example-service');
+ ACCORDIONS = document.getElementsByClassName('accordion');
 
  // addHtmlLogo = () => {
  //  // tslint:disable-next-line: prefer-for-of
@@ -139,6 +140,24 @@ export class AppComponent implements OnInit {
   }
  }
 
+ // ▼  ◀
+
+ // from W3 schools: https://www.w3schools.com/howto/howto_js_accordion.asp
+ accordionMethod() {
+  for (let i = 0; i < this.ACCORDIONS.length; i++) {
+   this.ACCORDIONS[i].innerHTML += '<span class="arrow">◀</span>';
+   this.ACCORDIONS[i].addEventListener('click', function () {
+    this.classList.toggle('open');
+    let panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+     panel.style.maxHeight = null;
+    } else {
+     panel.style.maxHeight = panel.scrollHeight + 'px';
+    }
+   });
+  }
+ }
+
 
  ngOnInit() {
   this.addHtmlLabel();
@@ -147,5 +166,6 @@ export class AppComponent implements OnInit {
   this.addOutputLabel()
   this.addParentLabel();
   this.addChildLabel();
+  this.accordionMethod();
  }
 }
