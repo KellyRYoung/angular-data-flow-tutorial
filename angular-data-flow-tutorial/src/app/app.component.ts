@@ -14,6 +14,9 @@ export class AppComponent implements OnInit {
  EXAMPLE_OUTPUT_BLOCKS = document.getElementsByClassName('example-output');
  EXAMPLE_PARENT_BLOCKS = document.getElementsByClassName('parent');
  EXAMPLE_CHILD_BLOCKS = document.getElementsByClassName('child');
+ EXAMPLE_A_BLOCKS = document.getElementsByClassName('example-a');
+ EXAMPLE_B_BLOCKS = document.getElementsByClassName('example-b');
+ EXAMPLE_SERVICE_BLOCKS = document.getElementsByClassName('example-service');
 
  // addHtmlLogo = () => {
  //  // tslint:disable-next-line: prefer-for-of
@@ -105,6 +108,33 @@ export class AppComponent implements OnInit {
    this.EXAMPLE_CHILD_BLOCKS[i].insertAdjacentHTML(
     'beforebegin',
     '<div class="child-label">Child Component</div>'
+   );
+  }
+ }
+
+ addALabel = () => {
+  for (let i = 0; i < this.EXAMPLE_A_BLOCKS.length; i++) {
+   this.EXAMPLE_A_BLOCKS[i].insertAdjacentHTML(
+    'beforebegin',
+    '<div class="a-label">Component A</div>'
+   );
+  }
+ }
+
+ addBLabel = () => {
+  for (let i = 0; i < this.EXAMPLE_B_BLOCKS.length; i++) {
+   this.EXAMPLE_B_BLOCKS[i].insertAdjacentHTML(
+    'beforebegin',
+    '<div class="b-label">Component B</div>'
+   );
+  }
+ }
+
+ addServiceLabel = () => {
+  for (let i = 0; i < this.EXAMPLE_SERVICE_BLOCKS.length; i++) {
+   this.EXAMPLE_SERVICE_BLOCKS[i].insertAdjacentHTML(
+    'beforebegin',
+    '<div class="service-label">Service</div>'
    );
   }
  }

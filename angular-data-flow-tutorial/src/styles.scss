@@ -190,14 +190,14 @@ input {
  color: #555;
 }
 
-.parent {
+.parent, .example-a {
  border: 1px dashed #1020ff7e;
  background-color: #1020ff23;
  text-align: center;
  padding: 15px 40px;
 }
 
-.parent-label {
+.parent-label, .a-label {
  color: #1020ff;
  font-weight: bold;
  position: relative;
@@ -205,15 +205,31 @@ input {
  left: 10px;
 }
 
-.child {
+.child, .example-b {
  border: 1px dashed #ff10107e;
  background-color: #ff101023;
  text-align: center;
  padding: 15px 40px;
 }
 
-.child-label {
+.child-label, .b-label {
  color: #ff1010;
+ font-weight: bold;
+ position: relative;
+ bottom: -5px;
+ left: 10px;
+ text-align: left;
+}
+
+.example-service {
+ border: 1px dashed #ff9f107e;
+ background-color: #ff9f1023;
+ text-align: center;
+ padding: 15px 40px;
+}
+
+.service-label {
+ color: #ff9f10;
  font-weight: bold;
  position: relative;
  bottom: -5px;

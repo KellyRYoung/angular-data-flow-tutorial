@@ -261,5 +261,26 @@
 AfterViewInit.
 
 <h4>Emitting Events</h4>
+<!-- already did at home -->
 
 <h4>Services</h4>
+<p>Services can communicate between any components, whether they have a parent/child relationship or not. Often,
+  subjects are used in services to detect and respond to changes. Subjects are both observers and observables.</p>
+<h6>Implementing a Service with a Subject:</h6>
+<ol>
+  <li>Create a subject and express it as an observable</li>
+  <li>Send a message to the observable from component A</li>
+  <li>Subscribe component B to the subject to receive the message</li>
+</ol>
+
+<div class="example-ts">
+  <span class="comment">// Interaction Service</span><br>
+  <br>
+  private <span class="tooltip">
+    <div class="tooltiptext">This is the subject. Note: underscore</div>_messageSource
+  </span> = new Subject&lt;string&gt;(); <br>
+  <span class="tooltip">
+    <div class="tooltiptext">Note: naming convention is that observables end in '$'</div>message$
+  </span> = this._messageSource.asObservable();
+</div>
+*Note: Subject must be imported from rxjs
