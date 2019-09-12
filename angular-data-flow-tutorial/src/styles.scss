@@ -95,6 +95,55 @@ input {
  display: flex;
  flex-direction: row;
 }
+
+/* from W3 Schools */
+.panel {
+ // display: none;
+ overflow: hidden;
+ max-height: 0;
+ transition: max-height 0.4s ease-out;
+ margin: 20px;
+}
+
+/* from W3 Schools */
+.accordion {
+ cursor: pointer;
+ width: 100%;
+ transition: 0.2s;
+ border: 1px solid #eee;
+ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+ padding: 20px;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+}
+.accordion:active {
+  // box-shadow: 0 0 0 #fff;
+ box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2) inset;
+ color: rgba(0,0,0,0.6);
+}
+
+.accordion:hover {
+ background-color: #eee;
+ .arrow {
+  color: rgba(38, 97, 175, 1);
+ }
+}
+
+.open {
+ background-color: #eee;
+ .arrow {
+  color: rgba(38, 97, 175, 0.6);
+  transform: rotate(-90deg);
+  transition: 0.2s ease-out;
+ }
+}
+
+.arrow {
+ color: rgba(38, 97, 175, 0.6);
+ transition: 0.2s ease-in;
+}
+
 .example-html {
  font-family: 'Courier New', Courier, monospace;
  margin: 10px;
@@ -190,14 +239,14 @@ input {
  color: #555;
 }
 
-.parent {
+.parent, .example-a {
  border: 1px dashed #1020ff7e;
  background-color: #1020ff23;
  text-align: center;
  padding: 15px 40px;
 }
 
-.parent-label {
+.parent-label, .a-label {
  color: #1020ff;
  font-weight: bold;
  position: relative;
@@ -205,15 +254,31 @@ input {
  left: 10px;
 }
 
-.child {
+.child, .example-b {
  border: 1px dashed #ff10107e;
  background-color: #ff101023;
  text-align: center;
  padding: 15px 40px;
 }
 
-.child-label {
+.child-label, .b-label {
  color: #ff1010;
+ font-weight: bold;
+ position: relative;
+ bottom: -5px;
+ left: 10px;
+ text-align: left;
+}
+
+.example-service {
+ border: 1px dashed #ff9f107e;
+ background-color: #ff9f1023;
+ text-align: center;
+ padding: 15px 40px;
+}
+
+.service-label {
+ color: #ff9f10;
  font-weight: bold;
  position: relative;
  bottom: -5px;
