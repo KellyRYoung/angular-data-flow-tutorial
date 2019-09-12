@@ -252,9 +252,35 @@
     </div>
   </div>
 </div>
-
 *Note: ViewChild and AfterViewInit must be imported from @angular/core. The parent component must implement AfterViewInit.
 
-<h4>Emitting Events</h4>
+<h4>@Output() and EventEmitter()</h4>
+<p>@Output and EventEmitter() allow the child component to send data to the parent. The output from the child component is a custom event that the child emits.</p>
+
+<div class="example-ts">
+  <span class="comment">// Parent Component</span><br>
+  parentMethod() &#123; <br>
+  &nbsp;&nbsp;&nbsp;alert("This method is from the parent component."); <br>
+  &#125;
+</div>
+
+<div class="example-ts">
+  <span class="comment">// Child Component</span><br>
+  @Output() callParentEvent = new EventEmitter(); <br>
+  callParentMethod() &#123; <br>
+  &nbsp;&nbsp;&nbsp;this.callParentEvent.emit<br>
+  &#125;
+</div>
+
+<div class="example-html">
+  <span class="comment">&lt;!-- Parent Component --&gt;</span><br>
+  &lt;child-component <span class="tooltip"><div class="tooltiptext">This custom event is defined in and emitted by the child component</div>(callParentEvent)</span>=<span class="tooltip"><div class="tooltiptext">When the parent catches the callParentEvent emitted by the child, it will execute the parentMethod()</div>"parentMethod()"</span>&gt;&lt;/child-component&gt;
+</div>
+
+<div class="example-html">
+  <span class="comment">&lt;!-- Child Component --&gt;</span><br>
+  &lt;button (click)="callParentMethod()"&gt;Call the parent component method&lt;/button&gt;
+</div>
+*Note: EventEmitter and Output must be imported from @angular/core.
 
 <h4>Services</h4>
