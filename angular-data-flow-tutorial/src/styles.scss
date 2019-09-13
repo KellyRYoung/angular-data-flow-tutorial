@@ -7,10 +7,19 @@
 /* Elements */
 body {
  font-family: Arial, Helvetica, sans-serif;
- line-height: 1.5em;
- margin: 50px 100px;
+ line-height: 2em;
  position: relative;
  font-size: 1em;
+ color: rgb(40, 41, 44, 0.9);
+ background-color:  rgba(38, 97, 175, 0.3);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 50px 100px;
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
 }
 
 h1,
@@ -19,9 +28,6 @@ h3 {
  margin-top: 30px;
  margin-bottom: 10px;
  font-size: 2em;
-}
-h2 {
- margin-top: 70px;
 }
 
 h4,
@@ -108,40 +114,47 @@ input {
 /* from W3 Schools */
 .accordion {
  cursor: pointer;
- width: 100%;
  transition: 0.2s;
- border: 1px solid #eee;
+ // border: 1px solid #eee;
  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
- padding: 20px;
+ padding: 20px 40px;
  display: flex;
  flex-direction: row;
  justify-content: space-between;
+ border-radius: 200px;
+ color: rgba(38, 97, 175, 1);
 }
 .accordion:active {
   // box-shadow: 0 0 0 #fff;
  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2) inset;
- color: rgba(0,0,0,0.6);
+ color: rgba(38, 97, 175, 0.5);
 }
 
 .accordion:hover {
  background-color: #eee;
  .arrow {
-  color: rgba(38, 97, 175, 1);
+  // color: rgba(38, 97, 175, 1);
  }
 }
 
 .open {
  background-color: #eee;
  .arrow {
-  color: rgba(38, 97, 175, 0.6);
+  // color: rgba(38, 97, 175, 0.6);
   transform: rotate(-90deg);
   transition: 0.2s ease-out;
  }
 }
 
 .arrow {
- color: rgba(38, 97, 175, 0.6);
+//  color: rgba(38, 97, 175, 0.6);
  transition: 0.2s ease-in;
+ color: rgba(0,0,0,0);
+ background-color: rgba(38, 97, 175, 1);
+ text-shadow: -2px 4px 2px rgba(255,255,255,0.5);
+ -webkit-background-clip: text;
+    -moz-background-clip: text;
+         background-clip: text;
 }
 
 .example-html {
@@ -291,14 +304,15 @@ input {
 /* IDs */
 #return-to-top-button {
  position: fixed;
- bottom: 10px;
- right: 10px;
+ bottom: 30px;
+ right: 30px;
  z-index: 100;
- color: rgba(38, 97, 175, 0.6);
- font-size: 3em;
+ color: rgb(112, 153, 207);
+ font-size: 4em;
  font-weight: bold;
  text-align: center;
  align-items: center;
+ text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.3)
 }
 #return-to-top-button:hover {
  color: rgba(38, 97, 175, 1);
@@ -366,3 +380,5 @@ input {
  visibility: visible;
  opacity: 1;
 }
+
+
